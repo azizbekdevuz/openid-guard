@@ -1,138 +1,236 @@
-# 🔒 OpenID Guard
+# OpenID Guard
 
-**Universal, Open-Source, Privacy-Respecting Identity Verification System for the Web2 + Web3 World**
+![OpenID Guard](https://via.placeholder.com/1200x300/0a0a0a/3b82f6?text=OpenID+Guard)
 
----
+**OpenID Guard** is a universal, privacy-respecting identity verification system for both Web2 and Web3 applications. It provides developers with tools to verify user identities without compromising user privacy.
 
-## 🌐 Overview
+## 🔒 Features
 
-**OpenID Guard** is a decentralized identity verification protocol and toolkit that helps developers verify users in a **modular, human-first, bot-resistant, and privacy-respecting** way. No centralized tracking. No forced KYC. Just proof that you're real.
+- **Privacy-First Verification**: Verify identities without exposing personal data
+- **Zero-Knowledge Proofs**: Allow users to prove their identity without revealing sensitive information
+- **Decentralized Identifiers (DIDs)**: Generate and use W3C-compliant DIDs
+- **Trust Score System**: Calculate trustworthiness based on multiple verification factors
+- **Email Verification**: Secure OTP verification via Supabase
+- **Bot Resistance**: Optional hCaptcha integration
+- **Multilingual Support**: i18n with English, Uzbek, and Korean translations
+- **Modern UI**: Built with Tailwind CSS and Framer Motion
+- **TypeScript**: End-to-end type safety
 
-Designed for use across:
-- 🌍 Web apps
-- 🧵 Forums & communities
-- 🌐 Decentralized platforms (DAOs, dApps)
-- 💼 Job boards & EdTech
-- 🔐 Any platform where trust and authenticity matter
+## 🛠️ Tech Stack
 
----
+### Frontend
+- [Next.js](https://nextjs.org/) with TypeScript
+- [Tailwind CSS](https://tailwindcss.com/) for styling
+- [Framer Motion](https://www.framer.com/motion/) for animations
+- [next-i18next](https://github.com/i18next/next-i18next) for internationalization
 
-## 🧩 Why OpenID Guard?
+### Backend
+- [Fastify](https://www.fastify.io/) with TypeScript
+- [did-jwt](https://github.com/decentralized-identity/did-jwt) for DID operations
+- [Supabase](https://supabase.io/) for email services
+- [hCaptcha](https://www.hcaptcha.com/) for bot prevention (optional)
 
-In 2025, trust is broken online:
-- AI-generated bots and fake accounts are everywhere.
-- Centralized logins (Google/Facebook) compromise privacy.
-- People deserve anonymous yet **verifiable** identities.
+## 📋 Project Structure
 
-**OpenID Guard** fixes this.
-
-- ✅ **Proof-of-Human** without revealing your name
-- 🧠 Pluggable verification levels (CAPTCHA, email, social, zk-proof)
-- 🔓 Built on open standards (DID + Verifiable Credentials)
-- 🌍 Universal design (i18n ready)
-- 🛠️ Easy integration with API + Widget
-- 🤝 Open-source & community-driven
-
----
-
-## 🔧 MVP Features
-
-| Feature | Status | Description |
-|--------|--------|-------------|
-| ✅ Anonymous Identity | ✔️ | DID-based identity (no wallet or account needed) |
-| ✅ Email Verification | ✔️ | Optional trust layer |
-| ✅ CAPTCHA Integration | ✔️ | hCaptcha or custom logic |
-| ✅ API + Widget | ✔️ | Drop-in `<IdentityVerifier />` for devs |
-| ✅ Score/Level System | 🛠️ | Trust score returned from backend |
-| ✅ Docs + Portal | 🛠️ | Integration docs and contributor portal |
-
----
-
-## 🛠 Tech Stack
-
-| Layer | Tech |
-|-------|------|
-| Frontend | Next.js + Tailwind CSS + TypeScript |
-| Backend | Node.js (Fastify) + TypeScript |
-| Identity Layer | DID (did:key / did:web), did-jwt |
-| DB & Auth | Supabase (PostgreSQL + Auth) |
-| Hosting | Vercel (frontend), Railway/Render (backend) |
-| Verification | hCaptcha, email OTP, optional zk |
-| Docs | GitHub Pages or VitePress (TBD) |
-
----
-
-## ⚙️ Installation
-
-```bash
-# Clone repo
-git clone https://github.com/azizbekdevuz/openid-guard.git
-cd openid-guard
-
-# Setup Frontend
-cd frontend
-npm install
-npm run dev
-
-# Setup Backend
-cd ../backend
-npm install
-npm run dev
+```
+openid-guard/
+├── frontend/                # Next.js frontend
+│   ├── public/              # Public assets and locales
+│   │   └── locales/         # i18n translation files
+│   ├── src/                 # Source code
+│   │   ├── app/             # Next.js pages
+│   │   ├── components/      # React components
+│   │   └── lib/             # Utility functions
+│   ├── next.config.js       # Next.js configuration
+│   └── next-i18next.config.js # i18n configuration
+│
+├── backend/                 # Fastify backend
+│   ├── src/                 # Source code
+│   │   ├── routes/          # API route handlers
+│   │   ├── services/        # Business logic services
+│   │   └── index.ts         # Server entry point
+│   └── .env                 # Environment variables
+│
+└── README.md                # This file
 ```
 
----
+## 🚀 Getting Started
 
-## 📦 How to Use the Widget (Coming Soon)
+### Prerequisites
 
-```tsx
-<IdentityVerifier
-  level="basic"
-  onVerified={(result) => {
-    console.log("User verified:", result);
-  }}
-/>
+- Node.js 14.0 or higher
+- npm or yarn
+
+### Installation
+
+#### Frontend
+
+1. Navigate to the frontend directory:
+   ```bash
+   cd frontend
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn
+   ```
+
+3. Create a `.env.local` file based on `.env.example`.
+
+4. Start the development server:
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+#### Backend
+
+1. Navigate to the backend directory:
+   ```bash
+   cd backend
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn
+   ```
+
+3. Create a `.env` file based on `.env.example`.
+
+4. Start the development server:
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+## 📖 Documentation
+
+Comprehensive documentation is available at the `/docs` route when running the application. It includes:
+
+- API Reference
+- Component Documentation
+- Integration Guides
+- Examples
+
+## 🔧 Configuration
+
+### Environment Variables
+
+#### Frontend (.env.local)
+
+```
+NEXT_PUBLIC_API_URL=http://localhost:3001/api
+NEXT_PUBLIC_HCAPTCHA_SITE_KEY=your-hcaptcha-site-key
 ```
 
----
+#### Backend (.env)
 
-## 🧠 Roadmap
+```
+PORT=3001
+HOST=0.0.0.0
+NODE_ENV=development
+API_VERSION=1.0.0
+LOG_LEVEL=info
 
-- [x] MVP backend + frontend scaffold
-- [x] DID identity support
-- [ ] Trust scoring system
-- [ ] API key & rate-limiting
-- [ ] Developer dashboard
-- [ ] ZK support (zkEmail, Semaphore)
-- [ ] Multi-language interface
+ALLOWED_ORIGINS=http://localhost:3000
 
----
+SUPABASE_URL=https://your-project-id.supabase.co
+SUPABASE_SERVICE_KEY=your-supabase-service-key
+
+HCAPTCHA_SITE_KEY=your-hcaptcha-site-key
+HCAPTCHA_SECRET=your-hcaptcha-secret
+
+JWT_SECRET=your-jwt-secret-key
+```
+
+## 🌍 Internationalization
+
+OpenID Guard supports multiple languages. Translation files are located in:
+
+```
+frontend/public/locales/
+├── en/              # English
+├── uz/              # Uzbek
+└── ko/              # Korean
+```
+
+To add a new language, create a new directory with the language code and add translation files.
+
+## 📱 Components
+
+### IdentityVerifier
+
+The main component for identity verification.
+
+```jsx
+import { IdentityVerifier } from '@/components/IdentityVerifier';
+
+function MyApp() {
+  const handleVerificationComplete = (result) => {
+    console.log('Verification result:', result);
+  };
+
+  return (
+    <IdentityVerifier 
+      apiUrl="/api/auth/verify"
+      onVerificationComplete={handleVerificationComplete}
+    />
+  );
+}
+```
+
+### TrustFeedbackUI
+
+A component to display trust scores and verification results.
+
+```jsx
+import { TrustFeedbackUI } from '@/components/TrustFeedbackUI';
+
+function MyApp({ verificationResult }) {
+  return (
+    <TrustFeedbackUI
+      did={verificationResult.did}
+      trustScore={verificationResult.trustScore}
+      verifiedAt={verificationResult.verifiedAt}
+      animated={true}
+      showDetails={true}
+    />
+  );
+}
+```
+
+## 🛣️ API Endpoints
+
+### Authentication
+
+- `POST /api/auth/login` - Authenticate a user
+- `POST /api/auth/verify` - Verify a user's identity
+- `POST /api/auth/register` - Register a new user
+
+### Email Verification
+
+- `POST /api/auth/send-otp` - Send a verification code
+- `POST /api/auth/verify-otp` - Verify an OTP code
 
 ## 🤝 Contributing
 
-We welcome contributors of all backgrounds and skill levels!  
-Check out [CONTRIBUTING.md](./CONTRIBUTING.md) for details.
-
-- Issues labeled `good first issue`
-- Open to translations, integrations, security reviews
-
----
+Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 📄 License
 
-MIT License — free for personal and commercial use.
+This project is licensed under the MIT License - see the LICENSE file for details.
 
----
+## ⚡ Powered By
 
-## 🧠 Credits / Inspiration
-
-- [W3C DID](https://www.w3.org/TR/did-core/)
-- [Verifiable Credentials](https://www.w3.org/TR/vc-data-model/)
-- [Self.ID](https://developers.ceramic.network/tools/self-id/)
-- [Gitcoin Passport](https://passport.gitcoin.co/)
-- [Proof of Humanity](https://www.proofofhumanity.id/)
-
----
-
-## 📣 Stay Connected
-
-Follow the project, open issues, request features, or join the Discord (coming soon).
+- [Next.js](https://nextjs.org/)
+- [Fastify](https://www.fastify.io/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Framer Motion](https://www.framer.com/motion/)
+- [Supabase](https://supabase.io/)
+- [did-jwt](https://github.com/decentralized-identity/did-jwt)
